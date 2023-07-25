@@ -1,0 +1,49 @@
+/*Hacer un programa para ingresar por teclado la fecha de nacimiento de una persona, ingresando día, mes y año como 3 datos individuales.
+ Luego ingresar la fecha actual ingresando día, mes y año como 3 datos individuales. Calcular luego la edad en años de esa persona y
+listarlo por pantalla.
+Ej 1. Si se ingresa como fecha de nacimiento: 3/12/2000 y la fecha actual es 26/2/2019 la edad de esa persona es 18 ya que los 19
+recién los cumple en diciembre.
+Ej 2. Si se ingresa como fecha de nacimiento: 3/1/2000 y la fecha actual es 26/2/2019 la edad de esa persona es 19.
+Ej 3. Si se ingresa como fecha de nacimiento: 28/2/2000 y la fecha actual es 26/2/2019 la edad de esa persona es 18 ya
+ que le faltan 2 días para cumplir los 19 años.*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+    int dia_nac,mes_nac,ano_nac;//datos de nacimiento
+    int dia,mes,ano,edad;//fecha actual
+    cout<<endl<<"Fecha de Nacimiento"<<endl;
+    cout<<"     Dia: ";
+    cin>>dia_nac;
+    cout<<"     Mes : ";
+    cin>>mes_nac;
+    cout<<"     Ano : ";
+    cin>>ano_nac;
+
+        cout<<endl<<"Ingresar Fecha actual"<<endl;
+    cout<<"     Dia: ";
+    cin>>dia;
+    cout<<"     Mes : ";
+    cin>>mes;
+    cout<<"     Ano : ";
+    cin>>ano;
+
+    if(mes>mes_nac){
+            edad=ano-ano_nac;
+        cout<<endl<<"Tiene "<<edad<<" anos"<<endl;
+}
+    else if(mes<mes_nac){
+          edad=ano-ano_nac-1;
+        cout<<endl<<"       Tiene "<<edad<<" anos"<<endl;
+    }
+    if(mes==mes_nac&&dia>dia_nac){
+          edad=ano-ano_nac;
+        cout<<endl<<"       Tiene "<<edad<<" anos"<<endl;
+    }
+    else if(mes==mes_nac&&dia<dia_nac){
+        edad=ano-ano_nac-1;
+        cout<<endl<<"       Tiene "<<edad<<" anos"<<endl;
+    }
+
+	return 0;
+}
