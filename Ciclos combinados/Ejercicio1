@@ -1,0 +1,79 @@
+/*En una empresa los empleados cobran un sueldo según la categoría a la que pertenecen. Son 50 empleados y los sueldos son:
+Categoría 1: $38000
+Categoría 2: $70000
+Categoría 3: $105000
+Al sueldo se le suma además $ 1200 por cada año trabajado. Para cada empleado se tienen los siguientes datos:
+- Categoría (1 a 3)
+- Antigüedad (entero)
+
+Hay un registro por cada empleado. La información no está agrupada ni ordenada. Se pide calcular e informar:
+a) ¿Cuantos empleados hay para cada categoría?
+b) Total de sueldos (en $) pagados para cada categoría.
+c) Sueldo Promedio.
+d) ¿Cual fue el sueldo máximo y a que categoría pertenece?
+*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+ //for de 50 para los empleados
+    int  categoria,ant,i=1,aux,cate1=0,cate2=0,cate3=0,sueldo;
+    int total_cate1=0,total_cate2=0,total_cate3=0,sueldo_promedio,sueldo_max=0;
+
+    const int a= 38000,b =70000,c =105000;
+
+
+
+    for(i=1;i<=5;i++){
+        cout<<"Ingresar categoria: ";
+        cin>>categoria;
+        cout<<"Ingresar antiguedad: ";
+        cin>>ant;
+        cout<<"**************************"<<endl;
+
+        switch(categoria){  // a) ¿Cuantos empleados hay para cada categoría?,  Total de sueldos (en $) pagados para cada categoría
+            case 1:
+                cate1++;
+                sueldo= a+(1200*ant);
+                total_cate1=total_cate1+sueldo;
+            break;
+            case 2:
+                cate2++;
+                 sueldo= b+ (1200*ant);
+                total_cate2=total_cate2+sueldo;
+            break;
+            case 3:
+                cate3++;
+                sueldo= c + (1200*ant);
+                total_cate3=total_cate3+sueldo;
+            break;
+        }
+        if (sueldo_max=0){
+            sueldo_max=sueldo;
+            aux=categoria;
+        }
+        else if(sueldo>sueldo_max){
+            sueldo_max=sueldo;
+            aux=categoria;
+        }
+
+
+    }
+    sueldo_promedio= (total_cate1+total_cate2+total_cate3)/50;
+
+    cout<<endl<<"Cantidad de empleados categoria 1: "<<cate1<<endl;
+    cout<<"Total de sueldos para categoria 1:$ " << total_cate1<<endl;
+
+    cout<<endl<<"Cantidad de empleados categoria 2: "<<cate2<<endl;
+    cout<<"Total de sueldos para categoria 2 :$ " <<total_cate2<<endl;
+
+    cout<<endl<<"Cantidad de empleados categoria 3: "<<cate3<<endl;
+    cout<<"Total de sueldos para categoria 3 :$ " <<total_cate3<<endl;
+
+    cout<<endl<<"Sueldo promedio:$  "<<sueldo_promedio<<endl;
+    cout<<endl<<endl<<"Sueldo maximo:$  "<<sueldo_max<<endl;
+    cout<<"Correspondiente a la categoria: "<<aux<<endl;
+
+
+    return 0;
+}
