@@ -1,0 +1,28 @@
+/*Un comercio vende tres marcas de alfajores distintas A, B y C. Hacer un programa para ingresar por teclado la cantidad de alfajores
+vendidos de cada una de las tres marcas y luego se informe el porcentaje de ventas para cada una de ellas.
+Ej. Si se ingresa 100, 25 y 75 como cantidades vendidas entonces el programa calculará e informará A: 50%, B: 12,50% y C: 37,50%.
+*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+int a,b,c;
+    float total,totalA,totalB,totalC;
+    cout<<"Cantidad vendida de alfajores A:  ";
+    cin>>a;
+    cout<<"Cantidad vendida de alfajores B:  ";
+    cin>>b;
+    cout<<"Cantidad vendida de alfajores C:  ";
+    cin>>c;
+total= a+b+c;
+totalA= a*100/total;
+totalB= b*100/total;
+totalC= c*100/total;
+    cout<<endl<<"Porcentaje de ventas alfajores A:  "<<totalA<<" %"<<endl;
+    cout<<"Porcentaje de ventas alfajores B:  "<<totalB<<" %"<<endl;
+    cout<<"Porcentaje de ventas alfajores C:  "<<totalC<<" %"<<endl<<endl;
+
+
+
+	return 0;
+}
