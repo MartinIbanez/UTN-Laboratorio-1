@@ -1,0 +1,26 @@
+/*Hacer un programa para ingresar un N valor que indica la cantidad de números que componen una lista y luego solicitar se ingresen
+ esos N números. Se pide informar cuantos son positivos */
+
+
+#include<iostream>
+using namespace std;
+int main(void) {
+    int n,aux,total,x;
+    total=0;
+    cout<<"Cantidad que componen la lista: ";
+    cin>>n;
+
+    for(x=1;x<=n;x++){
+        cout<<"             Ingrese un numero:  ";
+        cin>>aux;
+        if(aux>0){
+            total++;
+        }
+
+    }
+        cout<<endl<<"Total Nros Positivos: " <<total<<endl;
+
+
+
+	return 0;
+}
