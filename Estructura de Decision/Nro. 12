@@ -1,0 +1,44 @@
+/*Hacer un programa para leer tres números diferentes y determinar e informar el número del medio. Ejemplo: si se ingresan 6, 10, 8,
+se emitirá 8.*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+ float n1,n2,n3;
+
+    cout<<"Ingrese un numero: ";
+    cin>>n1;
+    cout<<"Ingrese un numero: ";
+    cin>>n2;
+    cout<<"Ingrese un numero: ";
+    cin>>n3;
+
+
+    if(n1>n2&&n1>n3){
+
+        if(n2>n3){
+            cout<<endl<<"El numero medio es: "<<n2<<endl;
+        }
+        else
+        cout<<endl<<"El numero medio es: "<<n3<<endl;
+    }
+     if(n2>n1&&n2>n3){
+
+        if(n1>n3){
+            cout<<endl<<"El numero medio es: "<<n1<<endl;
+        }
+        else
+        cout<<endl<<"El numero medio es: "<<n3<<endl;
+    }
+     if(n3>n2&&n3>n1){
+
+        if(n2>n1){
+            cout<<endl<<"El numero medio es: "<<n2<<endl;
+        }
+        else
+        cout<<endl<<"El numero medio es: "<<n1<<endl;
+    }
+
+
+	return 0;
+}
