@@ -1,0 +1,139 @@
+/*La Cámara de Exportadores de la República Argentina dispone de las exportaciones realizadas por 10 industrias del país.
+ Por cada exportación se registra:
+Código de industria (Número entero)
+Código de exportación (Número entero)
+Código de producto (Número entero desde 1 hasta 40)
+Continente de destino (1 - América, 2 - Europa, 3 - Asia)
+Total de toneladas exportadas (float)
+Importe total (float)
+
+La información se encuentra agrupada por código de industria. Cada industria registró 7 exportaciones. La información no se encuentra ordenada bajo ningún criterio.
+Cada exportación es enviada en contenedores que pueden transportar hasta 30 toneladas.
+*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout<<endl<<"     CAMARA DE EXPORTADORES DE LA REPUBLICA ARGENTINA     "<<endl;
+    int industria,exportacion,cod_producto,destino,ind_actual,x,i;
+    float toneladas,importe;
+    //A
+    int cod_35,total_cod35=0;
+    //B
+    float acu_america=0,acu_europa=0,acu_asia=0;
+    //C
+    int acu_toneladas;
+    int contenedor;
+    //D
+    float precio_tonelada=0,menor_importe;
+    bool D=false;
+    int aux_cod,aux_continente;
+
+
+
+
+    for(x=0; x<3; x++)
+    {
+        cout<<"Codigo de industria: ";
+        cin>>industria;
+        acu_toneladas=0;
+
+        for(i=0; i<3; i++)
+        {
+            ind_actual=industria;
+            cod_35=0;
+
+            cout<<"Codigo de exportacion: ";
+            cin>>exportacion;
+            cout<<"Codigo de Producto: ";
+            cin>>cod_producto;
+            cout<<"Destino: ";
+            cout<<" 1 -America  2-Europa  3-Asia: ";
+            cin>>destino;
+            cout<<" Toneladas exportadas: ";
+            cin>>toneladas;
+            cout<<"Importe: ";
+            cin>>importe;
+            //A La cantidad de industrias que no exportaron nunca el producto con código 35.
+            if(cod_producto==35)
+            {
+                cod_35=cod_35+1;
+            }
+            //B El nombre del continente que más toneladas haya recibido en total
+            switch(destino)
+            {
+            case 1:
+                acu_america=acu_america+toneladas;
+                break;
+            case 2:
+                acu_europa=+toneladas;
+                break;
+            case 3:
+                acu_asia=+toneladas;
+                break;
+
+            }
+
+            acu_toneladas=acu_toneladas+toneladas;
+
+            //D La exportación que haya registrado el menor importe total por tonelada. Se debe informar el código de exportación,
+            //el importe por tonelada y el continente de destino.
+            precio_tonelada= toneladas/importe;
+            if(D==false)
+            {
+                D=true;
+                menor_importe=precio_tonelada;
+                aux_cod=exportacion;
+                aux_continente=destino;
+            }
+            else if (D==true&& precio_tonelada<menor_importe)
+            {
+                menor_importe=precio_tonelada;
+                aux_cod=exportacion;
+                aux_continente=destino;
+            }
+
+        }
+
+
+        if(cod_35>0)
+        {
+            total_cod35++;
+        }
+        //C Por cada industria, la cantidad total de contenedores necesarios.
+        if(acu_toneladas%30==0)
+        {
+            contenedor=acu_toneladas%30;
+        }
+        else if(acu_toneladas%30!=0)
+        {
+            contenedor=acu_toneladas%30+1;
+            }
+        cout<<endl<<"C-cantidad de contenedores necesarios: "<<contenedor<<endl;
+
+    }
+
+
+    cout<<endl<<endl<<"A- Cantidad de industrias que no exportaron nunca el producto con codigo 35: "<<total_cod35;
+
+    if(acu_america>acu_europa&&acu_america>acu_asia)
+    {
+        cout<<endl<<"B- America es el continente que recibio mayor tonelada"<<endl;
+    }
+    if(acu_europa>acu_america&&acu_europa>acu_asia)
+    {
+        cout<<endl<<"B- Europa es el continente que recibio mayor tonelada"<<endl;
+    }
+    if(acu_asia>acu_europa&&acu_asia>acu_america)
+    {
+        cout<<endl<<"B- Asia es el continente que recibio mayor tonelada"<<endl;
+    }
+
+
+    cout<<endl<<endl<<"D- Exportacion con menor importe por tonelada: "<<aux_cod;
+    cout<<endl<<"D- Con un importe por tonelada de : "<<menor_importe;
+    cout<<endl<<"D- Continente de destino: "<<aux_continente<<endl;
+
+    return 0;
+}
