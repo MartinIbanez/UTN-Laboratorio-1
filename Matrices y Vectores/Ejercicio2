@@ -1,0 +1,31 @@
+Hacer un programa donde se carguen 15 números enteros y luego le solicite al usuario un número e indique si el mismo pertenece a la
+lista cargada anteriormente.
+*/
+
+#include <iostream>
+using namespace std;
+int main() {
+    const int t=15;
+    int numeros[t]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14},num_usuario,x;
+    bool testigo=false;
+
+
+    cout<<endl;
+    cout<<"  Usuario ingrese un numero: ";
+    cin>>num_usuario;
+
+    for(x=0;x<15;x++){
+        if(numeros[x]==num_usuario){
+            testigo=true;
+         }
+
+        }
+    if (testigo==false){
+        cout<<endl<<"El numero no se encuentra en la lista"<<endl;
+    }
+    if(testigo==true){
+        cout<<endl<<"El numero se encuentra en la lista"<<endl;
+    }
+
+    return 0;
+}
