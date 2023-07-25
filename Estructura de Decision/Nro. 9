@@ -1,0 +1,27 @@
+/*Hacer un programa para ingresar tres números y listar el máximo de ellos.*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+float n1,n2,n3,aux;
+
+    cout<<"Ingrese un numero: ";
+    cin>>n1;
+    cout<<"Ingrese un numero: ";
+    cin>>n2;
+    cout<<"Ingrese un numero: ";
+    cin>>n3;
+
+    if(n1>n2&&n1>n3){
+        cout<<endl<<"El mayor es: "<<n1<<endl;
+}
+    else if(n2>n1&&n2>n3){
+        cout<<endl<<"El mayor es: "<<n2<<endl;
+    }
+    else if(n3>n2&&n3>n1){
+        cout<<endl<<"El mayor es: "<<n3<<endl;
+    }
+
+
+    return 0;
+}
