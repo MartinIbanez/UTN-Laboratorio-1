@@ -1,0 +1,33 @@
+/*Basado en los 2 ejercicios anteriores, hacer un programa para ingresar por teclado la longitud de los tres lados de un triángulo y
+ luego listar que tipo de triángulo es:
+- Equilátero: si los tres lados son iguales.
+- Isósceles: si dos de los tres lados son iguales.
+- Escaleno: si los tres lados son distintos entre sí.*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+int n1,n2,n3;
+
+    cout<<"Ingrese un numero: ";
+    cin>>n1;
+    cout<<"Ingrese un numero: ";
+    cin>>n2;
+    cout<<"Ingrese un numero: ";
+    cin>>n3;
+
+    if(n1!=n2 && n2!=n3 && n1!=n3){
+        cout<<endl<<"Es triangulo escaleno"<<endl;
+    }
+
+    else
+    if(n1==n2 && n2==n3 && n1==n3){
+        cout<<endl<<"Es equilatero"<<endl;
+    }
+    else{
+        cout<<endl<<"Es isosceles"<<endl;
+    }
+
+
+	return 0;
+}
