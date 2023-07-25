@@ -1,0 +1,83 @@
+/*Un laboratorio de análisis químico de agua desea registrar la información de los análisis que realizó el día de ayer. Por cada
+registro de análisis de agua realizado contiene la siguiente información:
+ID Protocolo (entero)
+Nivel de sodio en mg/l (entero)
+Nivel de platino en mg/l (float)
+Determinación de pH (float)
+Litros de la muestra (float)
+
+Para determinar si el agua es potable o no, se rigen ciertos parámetros que se detallan a continuación:
+Sodio 0 mg/l    hasta  150 mg/l
+Platino 0,2 mg/l hasta 12 mg/l
+pH 6,5 hasta 8,5
+Se finaliza el ingreso de datos ingresando un ID de Protocolo igual a cero.
+
+Se pide calcular e informar:
+La cantidad de protocolos que se encuentran dentro de los parámetros aceptables para considerarla potable. Es decir, todos los
+ítems deben estar entre los rangos establecidos.
+El ID Protocolo que haya registrado la determinación de pH más alta. Indicar ID Protocolo y nivel de pH.
+El promedio de litros de muestra entre todos los protocolos.*/
+
+#include <iostream>
+using namespace std;
+int main() {
+    int ID_protocolo,sodio,cont=0;
+    float platino,ph,litros;
+   //b
+   float mayor_ph;
+   int aux;
+   bool registro=false;
+   //C
+   int protocolo=0;
+   float cont_litros=0,prom;
+
+   cout<<"Ingrese ID de protocolo: ";
+   cin>>ID_protocolo;
+
+    while(ID_protocolo!=0){
+            protocolo++;
+    cout<<"Nivel de Sodio: ";
+    cin>>sodio;
+    cout<<"Nivel de Platino: ";
+    cin>>platino;
+    cout<<"Nivel de PH: ";
+    cin>>ph;
+    cout<<"Litros de la muestra: ";
+    cin>>litros;
+    cont_litros+=litros;
+        //A
+        if(sodio>=0&&sodio<=150){
+            if(platino>=0.2&&platino<=12){
+                if(ph>=6.5&&ph<=8.5){
+                    cont++;
+                }
+            }
+        }
+        //B
+        if(registro==false){
+            registro=true;
+            aux=ID_protocolo;
+            mayor_ph=ph;
+        }
+            else if(registro==true){
+                if(ph>mayor_ph){
+                    aux=ID_protocolo;
+                    mayor_ph=ph;
+                }
+            }
+        prom=cont_litros/protocolo;
+
+    cout<<"Ingrese ID de protocolo: ";
+    cin>>ID_protocolo;
+
+    }
+
+cout<<endl<<endl;
+cout<<"A- Protocolos que se encuentran dentro de los parametros aceptables: "<<cont;
+cout<<endl<<"B- Protocolo con mayor determinacion de PH: "<<aux;
+cout<<"  Con un nivel de : "<<mayor_ph;
+cout<<endl<<"C- Promedio de litros de muestra: "<<prom<<endl;
+
+
+    return 0;
+}
