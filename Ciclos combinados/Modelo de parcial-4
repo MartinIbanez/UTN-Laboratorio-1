@@ -1,0 +1,124 @@
+/*La Asociación de Fútbol de General Pacheco dispone de la información de los equipos que
+participaron en los últimos 5 torneos realizados. Por cada equipo se registró:
+- Número de torneo (Número entero)
+- Número de equipo (Número entero)
+- Partidos ganados (Número entero)
+- Partidos empatados (Número entero)
+- Partidos perdidos (Número entero)
+- Goles a favor (Número entero)
+- Goles en contra (Número entero)
+- Puntos descontados por sanciones (Número entero)
+La información se encuentra agrupada por número de torneo. Para indicar la finalización de
+carga de datos de un torneo se ingresa un número de equipo igual a cero.
+Se pide calcular e informar:
+A) Por cada torneo, el equipo campeón del certamen. Indicando el número de equipo y
+los puntos obtenidos. (30 puntos)
+B) La cantidad de torneos que no hayan tenido equipos a los que se les descontó
+puntos por sanciones. (30 puntos)
+C) La diferencia de goles del equipo nro 15. (20 puntos)
+D) El equipo que menos partidos haya empatado en un torneo pero que al menos haya
+empatado alguno. Indicar el número de equipo, la cantidad de partidos empatados y
+el número de torneo. (20 puntos)
+Aclaraciones:
+- Sólo habrá un equipo con la mayor cantidad de puntos en cada torneo. Se otorgan 3
+puntos por partido ganado y 1 punto por partido empatado. Se deben descontar los
+puntos debido a sanciones.
+- Habrá sólo un equipo con la menor cantidad de empates en un torneo.
+*/
+
+#include <iostream>
+using namespace std;
+int main() {
+    cout<<endl;
+    cout<<" * * * * *      ASOCIACION DE FUTBOL DE GENERAL PACHECO      * * * * * "<<endl<<endl;
+
+    int num_torneo,equipo,PG,PE,PP,GF,GC,x,sancion;
+    //A
+    bool A=false;
+    int puntos,puntos_camp,aux;
+    //B
+    int cont_sancion=0,torneo_sindesc=0;
+    //C
+    int dif_quince;
+    //D
+    bool D=false;
+    int menos_empate,part_empate,aux2;
+
+
+    for(x=0;x<5;x++){
+        cout<<"              Numero de torneo: ";
+        cin>>num_torneo;
+        cout<<"Numero de equipo: ";
+        cin>>equipo;
+        sancion=0;
+
+        while(equipo!=0){
+
+
+        cout<<"Partidos ganados: ";
+        cin>>PG;
+        cout<<"Partidos empatados: ";
+        cin>>PE;
+        cout<<"Partidos perdidos: ";
+        cin>>PP;
+        cout<<"Goles a favor: ";
+        cin>>GF;
+        cout<<"Goles en contra: ";
+        cin>>GC;
+        cout<<"Puntos descontados por sanciones: ";
+        cin>>sancion;
+
+        puntos=PG*3+PE*1-sancion;
+        cont_sancion=+sancion;
+
+        //A Por cada torneo, el equipo campeón del certamen. Indicando el número de equipo y los puntos obtenidos
+        if(A==false){
+            A=true;
+            puntos_camp=puntos;
+            aux=equipo;
+            }
+            else if(A==true){
+                if(puntos>puntos_camp){
+                    puntos_camp=puntos;
+                    aux=equipo;
+                }
+            }
+        //C La diferencia de goles del equipo nro 15
+        if(equipo==15){
+            dif_quince=GF-GC;
+        }
+         //D El equipo que menos partidos haya empatado en un torneo pero que al menos haya empatado alguno. Indicar el número
+          //de equipo, la cantidad de partidos empatados y el número de torneo
+          if(D==false&&PE>0){
+                D=true;
+                menos_empate=equipo;
+                part_empate=PE;
+                aux2=num_torneo;
+            }
+           else if(D==true&&PE<part_empate){
+                menos_empate=equipo;
+                part_empate=PE;
+                aux2=num_torneo;
+           }
+        cout<<endl<<" - - - - - - - - - - - "<<endl;
+        cout<<"Numero de equipo: ";
+        cin>>equipo;
+        }
+        //B La cantidad de torneos que no hayan tenido equipos a los que se les descontó puntos por sanciones.
+            if(sancion==0){
+                torneo_sindesc++;
+            }
+
+        cout<<endl<<" Equipo campeon: "<<aux<<endl;
+        cout<<"Puntos obtenidos: "<<puntos_camp;
+        cout<<endl<<"La diferencia de goles del equipo nro 15: "<<dif_quince<<endl;
+        cout<<endl<<"Equipo con menos empate en un torneo: "<<menos_empate<<endl;
+        cout<<endl<<"Cantidad de partidos empatados: "<<part_empate;
+        cout<<endl<<"Numero de torneo: "<<aux2;
+
+        cout<<endl<<endl;
+    }
+
+
+    return 0;
+}
