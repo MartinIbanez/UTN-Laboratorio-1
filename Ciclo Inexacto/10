@@ -1,0 +1,92 @@
+/*El festival Larapalooza, el mejor festival musical del mundo, brindará una serie de conciertos distribuidos en tres jornadas distintas.
+Se desea un programa que registre los artistas que participarán. Por cada artista se registró:
+Número de artista (entero)
+Integrantes (entero)
+Jornada (1, 2 o 3)
+Duración del show en minutos (entero)
+La información no se encuentra ordenada bajo ningún criterio. La carga de datos se finaliza con un número de artista igual a cero.
+Calcular e informar:
+El número de artista que realice el show más largo de la jornada 1.
+La cantidad de solistas (artistas de 1 integrante) que participaron en cada una de las jornadas. (se muestran tres resultados).
+La jornada más extensa (en minutos).
+Duración promedio de show por artista (se muestra un resultado).*/
+
+
+#include<iostream>
+using namespace std;
+int main(void) {
+    int art,totalart=1,integrantes,jornada,minutos,mayor_duracion,aux,duracion=0;
+    int jor_uno=0,jor_dos=0,jor_tres=0,cont1=0,cont2=0,cont3=0;
+    float promedio;
+    bool show=0;
+    cout<<"Ingrese numero de artista: ";
+    cin>>art;
+
+    while(art!=0){ //El número de artista que realice el show más largo de la jornada 1.
+    cout<<"Ingrese total de integrantes: ";
+    cin>>integrantes;
+    cout<<"Ingrese n° de jornada: ";
+    cin>>jornada;
+    cout<<"Duracion del show: ";
+    cin>>minutos;
+            if(show=0&&jornada==1){
+                mayor_duracion=minutos;
+                aux=art;
+                show=1;
+            }
+            else if(jornada==1&&minutos>mayor_duracion){
+                    mayor_duracion=minutos;
+                    aux=art;
+                }
+
+            //Cantidad de solistas que participaron en cada una de las jornadas.(se muestran tres resultados)
+
+                if(integrantes==1&&jornada==1){
+                    jor_uno++;
+                }
+                if(integrantes==1&&jornada==2){
+                    jor_dos++;
+                }
+                if(integrantes==1&&jornada==3){
+                    jor_tres++;
+                }
+
+            //La jornada más extensa (en minutos).
+            if(jornada==1){
+                    cont1=cont1+minutos;
+            }
+            else if(jornada==2){
+                cont2=cont2+minutos;
+            }
+            else {
+                cont3=cont3+minutos;
+            }
+            //Duración promedio de show por artista
+            duracion=duracion+minutos;
+            totalart++;
+    cout<<"***************************"<<endl;
+    cout<<"Ingrese numero de artista: ";
+    cin>>art;
+
+    }
+    if(cont1>cont2&&cont1>cont3){
+    cout<<endl<<"Jornada 1 fue la mas extensa con: "<<cont1<<" minutos"<<endl;
+    }
+    else if(cont2>cont1&&cont2>cont3){
+    cout<<endl<<"Jornada 2 fue la mas extensa con: "<<cont2<<" minutos"<<endl;
+        }
+    else {
+     cout<<endl<<"Jornada 3 fue la mas extensa con: "<<cont3<<" minutos"<<endl;
+    }
+
+    promedio=duracion/totalart;
+
+
+cout<<endl<<"Artista con el show mas largo de la jornada 1: "<<aux<<endl;
+cout<<endl<<"Cantidad de solistas en jornada 1: "<<jor_uno;
+cout<<endl<<"Cantidad de solistas en jornada 2: "<<jor_dos;
+cout<<endl<<"Cantidad de solistas en jornada 3: "<<jor_tres;
+cout<<endl<<endl<<"Duracion promedio de show por artista: "<<promedio<<endl<<endl;
+
+	return 0;
+}
