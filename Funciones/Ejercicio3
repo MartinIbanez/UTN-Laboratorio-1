@@ -1,0 +1,46 @@
+/*Hacer una función que reciba un número entero como parámetro y devuelva verdadero si el mismo es un número primo.
+ De lo contrario debe devolver falso.*/
+#include <iostream>
+#include<cstdlib> ///PARA LIMPIAR LA PANTALLA
+#include <stdlib.h> ///PARA LA PAUSA.
+#include <ctime>     ///LIBRERIA PARA NUMERO ALEATORIO.
+#include <string.h> ///LIBRERIA PARA CADENA DE CARACTERES.
+#include <cstring>  ///COPIA UNA PALABRA EN OTRA.
+#include <conio.h> ///PARA USAR GETCH.
+#include <string> ///ELEMENTOS TIPO CHAR
+#include<locale.h> ///PARA CARACTERES ESPECIALES.
+#include<windows.h> ///PARA EL LOGO DE CARD JITSU Y COLOR.
+#include <clocale> ///PARA CARACTERES ESPECIALES.
+
+bool esPrimo(int numero);
+
+using namespace std;
+
+int main() {
+    int n1;
+    cout<<"Ingresar un numero: ";
+    cin>>n1;
+    if(esPrimo(n1)==true){
+        cout<<"Es Primo"<<endl;
+    }
+    else{
+        cout<<"No es un numero Primo"<<endl;
+    }
+
+
+    return 0;
+}
+
+bool esPrimo(int numero){
+    int x,cd=0;
+    bool primo=false;
+    for(int x=1;x<=numero;x++){
+        if(numero%x==0){
+            cd++;
+    }
+}
+    if(cd==2){
+        primo=true;
+    }
+return primo;
+}
