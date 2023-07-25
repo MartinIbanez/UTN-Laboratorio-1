@@ -1,0 +1,21 @@
+/*Hacer un programa para ingresar por teclado una cantidad de minutos y mostrar por pantalla a cuántos días, horas y minutos equivalen.
+Ejemplo 1: si se ingresan 1520 minutos el programa mostrará por pantalla que equivalen a 1 día, 1 hora y 20 minutos.
+Ejemplo 2: si se ingresan 480 minutos el programa mostrará por pantalla que equivalen a 0 día, 8 horas y 0 minutos.
+*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+    int minutos,dias,horas,tiempo;
+    cout<<"Ingrese cantidad de minutos: ";
+    cin>>minutos;
+dias=minutos/1440;
+tiempo=minutos%1440;
+horas=tiempo/60;
+minutos=tiempo%60;
+
+    cout<<endl<<"Equivalen a:  "<<dias<<" DIA "<<horas<<" HORAS y "<<minutos<<" MINUTOS"<<endl<<endl;
+
+
+	return 0;
+}
