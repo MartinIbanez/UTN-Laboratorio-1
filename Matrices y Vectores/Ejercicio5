@@ -1,0 +1,53 @@
+Cargar un conjunto de 100 números reales y formar con los valores positivos un vector llamado pos y con los valores negativos un vector
+llamado nega. Mostrar por pantalla la cantidad de elementos que contiene cada vector y luego cada uno de los vectores. Sólo deben
+utilizarse dos vectores en el programa: pos y nega.
+*/
+
+#include <iostream>
+using namespace std;
+int main() {
+const int TAM=10;
+    int num,positivos=0,negativos=0,x;
+    int pos[TAM],nega[TAM];
+
+
+
+    for(x=0;x<TAM;x++){
+        cout<<"Ingrese un numero: ";
+        cin>>num;
+
+    if(num>0){
+        pos[positivos]=num;
+        positivos+=1;
+    }
+    if(num<0){
+        nega[negativos]=num;
+        negativos+=1;
+    }
+
+
+    }
+    cout<<endl<<"Cantidad de elementos del vector POSITIVOS: "<<positivos;
+    cout<<endl<<"Cantidad de elementos del vector NEGATIVOS: "<<negativos;
+    cout<<endl<<"---------------------------------------------"<<endl;
+    cout<<endl<<endl<<"---------VECTOR POSITIVOS---------";
+    for(x=0;x<positivos;x++){
+        cout<<endl;
+        if(pos[x]){
+            cout<<"Positivo en la posicion "<<x+1<<": "<<pos[x];
+        }
+    }
+    cout<<endl<<endl<<"---------VECTOR NEGATIVOS---------";
+
+    for(int j=0;j<negativos;j++){
+        cout<<endl;
+
+        if(nega[j]){
+            cout<<"Negativo en la posicion "<<j+1<<": "<<nega[j];
+        }
+    }
+
+
+
+    return 0;
+}
