@@ -1,0 +1,80 @@
+/*La asociación tigrense de panaderos desea registrar la información de los productos que comercializó el día de ayer.Por cada producto
+registró:
+Código de producto
+Tipo (1 - Factura, 2 - Torta, 3 - Panificado)
+Cantidad de kilogramos vendidos
+Total recaudado ($)
+La información no se encuentra agrupada ni ordenada. Para indicar el fin de la carga de datos se ingresa un código de producto
+negativo. Calcular e informar:
+1 - El código de producto que haya recaudado la menor cantidad de dinero.
+2 - El porcentaje de recaudación para cada tipo de producto.
+*/
+
+#include <iostream>
+using namespace std;
+int main(){
+    cout<<endl<<"--------   ***  ASOCIACION TIGRENSE DE PANADEROS  ***   --------"<<endl;
+   int cod,tipo,kg;
+   float recaudacion=0,importe,factura,torta,panif,tipo1=0,tipo2=0,tipo3=0;
+   cout<<"Codigo de productos:"<<endl;
+   cout<<"     1-Factura";
+   cout<<"     2-Torta";
+   cout<<"     3-Panificado";
+
+    cout<<endl;
+    cout<<endl<<endl<<"Ingrese el codigo de producto: ";
+    cin>>cod;
+
+    while(cod>=0){
+        cout<<"Cantidad de KG de la venta: ";
+        cin>>kg;
+        cout<<"Importe: $ ";
+        cin>>importe;
+
+        switch(cod){
+        case 1:
+            tipo1+=importe;
+
+        break;
+
+        case 2:
+            tipo2+=importe;
+        break;
+
+        case 3:
+            tipo3+=importe;
+        break;
+
+        default:
+            cout<<"Por favor, ingresar un codigo de producto valido";
+
+        }
+
+
+
+    cout<<endl<<endl<<"Ingrese el codigo de producto: ";
+    cin>>cod;
+
+    }
+        recaudacion= tipo1+tipo2+tipo3;
+        factura= tipo1*100/recaudacion;
+        torta= tipo2*100/recaudacion;
+        panif= tipo3*100/recaudacion;
+
+    if(tipo1<tipo2&&tipo1<tipo3){
+        cout<<endl<<" FACTURA es el producto con menor recaudacion";
+    }
+    else if (tipo2<tipo1&&tipo2<tipo3){
+        cout<<endl<<" TORTA es el producto con menor recaudacion";
+    }
+    else {
+        cout<<endl<<" PANIFICADO es el producto con menor recaudacion";
+    }
+
+    cout<<endl<<" Porcentajes de recaudacion segun producto:"<<endl;
+    cout<<"        1-Factura: "<<factura<<" %"<<endl;
+    cout<<"        2-Torta: "<<torta<<"  %"<<endl;
+    cout<<"        3-Panificado: "<<panif<<"  %"<<endl;
+    cout<<endl;
+    return 0;
+}
