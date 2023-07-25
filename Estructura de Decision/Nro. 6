@@ -1,0 +1,20 @@
+/*Hacer un programa para ingresar por teclado tres números y luego determinar e informar con una leyenda aclaratoria si los tres son
+iguales entre sí, caso contrario no emitir nada. Ayuda: Si A es igual a B y B es igual a C, entonces A y C son iguales.*/
+
+
+#include<iostream>
+using namespace std;
+int main(void) {
+ int n1,n2,n3;
+    cout<<"Ingrese un numero: ";
+    cin>>n1;
+    cout<<"Ingrese un numero: ";
+    cin>>n2;
+    cout<<"Ingrese un numero: ";
+    cin>>n3;
+
+    if(n1==n2&&n2==n3){
+        cout<<endl<<"Son iguales entre si"<<endl;
+    }
+	return 0;
+}
