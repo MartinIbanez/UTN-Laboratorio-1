@@ -1,0 +1,41 @@
+/*Hacer un programa para ingresar cinco números y listar cuántos de esos cinco números son positivos.*/
+
+
+#include<iostream>
+using namespace std;
+int main(void) {
+ int positivos;
+    float n1,n2,n3,n4,n5;
+   positivos=0;
+    cout<<"Ingrese un numero: ";
+    cin>>n1;
+    cout<<"Ingrese un numero: ";
+    cin>>n2;
+    cout<<"Ingrese un numero: ";
+    cin>>n3;
+    cout<<"Ingrese un numero: ";
+    cin>>n4;
+    cout<<"Ingrese un numero: ";
+    cin>>n5;
+
+    if(n1>0){
+    positivos=positivos+1 ;
+    }
+    if(n2>0){
+    positivos=positivos+1;
+    }
+    if(n3>0){
+    positivos=positivos+1;
+    }
+     if(n4>0){
+    positivos=positivos+1 ;
+    }
+    if(n5>0){
+    positivos=positivos+1 ;
+    }
+
+    cout<<endl<<"Total de positivos: "<<positivos<<endl;
+
+
+	return 0;
+}
