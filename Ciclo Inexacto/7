@@ -1,0 +1,48 @@
+/*Dada una lista de números que finaliza cuando se ingresa un número divisible por 7, informar cual es el anteúltimo y último número
+ impar ingresado.
+Ej 8, 4, -5, 6, 10, 5, 18, 14 se informa -5 y 5.
+Nota: Contemplar la posibilidad que podría no haber números impares en la lista
+*/
+
+#include<iostream>
+using namespace std;
+int main(void) {
+    int num,antult=0,ult=0,impar=0;
+    bool b=0;
+    cout<<"Ingrese un numero: ";
+    cin>>num;
+        if(num%2!=0&&b==0){
+                impar++;
+                ult=num;
+                b=1;
+            }
+
+    while(num%7!=0){
+            if(num%2!=0&&b==0){
+                impar++;
+                ult=num;
+                b=1;
+            }
+        else if(num%2!=0&&b==1){
+                impar++;
+                antult=ult;
+                ult=num;
+            }
+    cout<<"Ingrese un numero: ";
+    cin>>num;
+    }
+        if(antult==0&&ult==0){
+            cout<<endl<<"No se ingresaron numeros impares"<<endl;
+        }
+        else if(antult==0){
+            cout<<endl<<"Se registro solo un numero impar: "<<ult<<endl;
+        }
+        else {
+
+        cout<<endl<<"            Ante-Ultimo numero impar es: "<<antult<<endl;
+        cout<<endl<<"            Ultimo numero impar es: "<<ult<<endl;
+        cout<<endl<<"            Total numeros impares ingresados: "<<impar<<endl;
+        }
+
+	return 0;
+}
