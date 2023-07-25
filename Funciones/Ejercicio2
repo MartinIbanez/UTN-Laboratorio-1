@@ -1,0 +1,48 @@
+/*Hacer una función que reciba un vector de números enteros y su tamaño y devuelva la posición en donde se encuentra el valor
+ máximo del vector.*/
+#include <iostream>
+#include<cstdlib> ///PARA LIMPIAR LA PANTALLA
+#include <stdlib.h> ///PARA LA PAUSA.
+#include <ctime>     ///LIBRERIA PARA NUMERO ALEATORIO.
+#include <string.h> ///LIBRERIA PARA CADENA DE CARACTERES.
+#include <cstring>  ///COPIA UNA PALABRA EN OTRA.
+#include <conio.h> ///PARA USAR GETCH.
+#include <string> ///ELEMENTOS TIPO CHAR
+#include<locale.h> ///PARA CARACTERES ESPECIALES.
+#include<windows.h> ///PARA EL LOGO DE CARD JITSU Y COLOR.
+#include <clocale> ///PARA CARACTERES ESPECIALES.
+using namespace std;
+
+void cargarVector(int vec[],int tam);
+int buscarMaximo(int vec[],int tam);
+int main() {
+    int const tam=5;
+    int vec[tam];
+    int maximo;
+
+    cargarVector(vec,tam);
+    maximo= buscarMaximo(vec,tam);
+
+    cout<<endl<<"El valor maximo del Vector es: "<<maximo<<endl;
+
+    return 0;
+}
+
+void cargarVector(int vec[],int tam){
+    cout<<"Ingresar los elementos del Vector:"<<endl;
+
+    for(int x=0;x<tam;x++){
+            cout<<x+1<<". ";
+            cin>>vec[x];
+    }
+
+}
+int buscarMaximo(int vec[],int tam){
+    int x,maximo=0;
+    for(int x=0;x<tam;x++){
+        if(vec[x]>maximo){
+            maximo=vec[x];
+        }
+    }
+return maximo;
+}
