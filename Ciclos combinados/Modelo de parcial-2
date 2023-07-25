@@ -1,0 +1,107 @@
+La Bolsa de Comercio de la Ciudad de Buenos Aires brinda la información de la cotización de algunas acciones de la semana pasada.
+Por cada acción se tiene cinco registros de cotización. Cada cotización registra la siguiente información:
+Código de acción (entero)
+Precio apertura (float)
+Precio cierre (float)
+Volumen de venta (entero)
+Los datos se encuentran agrupados por código de acción. Hay cinco cotizaciones por cada acción. El fin de los datos se indica con
+un código de acción igual a 0.
+
+Se pide calcular e informar:
+A-Por cada acción, el promedio de volumen de venta.
+B-La cantidad de acciones que hayan registrado todas sus cotizaciones en alza. Es decir, el precio de cierre siempre sea mayor al
+precio de apertura.
+C-La acción que más haya incrementado su valor en una cotización en particular. Es decir, la diferencia entre el precio de apertura
+y precio de cierre más grande.
+D-La cantidad de cotizaciones en las que el precio no varió. Es decir, el precio de apertura es igual al precio de cierre.
+
+
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int accion, volumen,x;
+    float precio_apertura,precio_cierre;
+
+    //A
+    float prom_volumen,acu_volumen;
+    //B
+    int cot_alza=0,cont_acc=0;
+    //C
+    float mayor_dif,dif;
+    int aux;
+    bool diferencia=false;
+    //D
+    int cont_igualprecio=0;
+
+    cout<<"Ingrese codigo de accion:  ";
+    cin>>accion;
+
+
+    while(accion!=0){
+
+        acu_volumen=0;
+
+
+        for(x=0;x<3;x++){
+        cout<<endl<<"Precio de apertura:  ";
+        cin>>precio_apertura;
+        cout<<"Precio de cierre:  ";
+        cin>>precio_cierre;
+        cout<<"Volumen de venta:  ";
+        cin>>volumen;
+
+        acu_volumen+=volumen;
+
+            if(precio_cierre>precio_apertura){
+            cot_alza++;
+             }
+             if(cot_alza==3){
+            cont_acc++;
+            }
+            //c
+        dif=precio_cierre-precio_apertura;
+
+        if(diferencia==false){
+            diferencia=true;
+            aux=accion;
+            mayor_dif=dif;
+            }
+        else if(diferencia==true&&mayor_dif<dif){
+            aux=accion;
+            mayor_dif=dif;
+        }
+
+        if(precio_apertura==precio_cierre){
+            cont_igualprecio++;
+        }
+
+
+
+
+        }
+
+    prom_volumen= acu_volumen/3;
+    cout<<endl<<"Promedio de volumen de venta:  "<<prom_volumen;
+
+
+
+
+
+    cout<<endl<<"---------------------------";
+    cout<<"Ingrese codigo de accion:  ";
+    cin>>accion;
+    }
+
+
+    cout<<endl<<"Cantidad de acciones que hayan registrado todas sus cotizaciones en alza: "<<cont_acc<<endl;
+
+    cout<<endl<<"Accion que mas incremento su valor en una cotizacion: "<<aux;
+    cout<<endl<<"Cantidad de cotizaciones en las que el precio no varió: "<<cont_igualprecio;
+
+
+    return 0;
+}
