@@ -1,0 +1,43 @@
+Se ingresa por teclado un vector de 10 elementos todos distintos entre si. Luego eliminar el valor maaximo y desplazar todos los
+elementos un lugar.
+Ejemplo:
+Vector → {1 3 9 1 4 6 2 0 5 7 }, quedar → {1 3 1 4 6 2 0 5 7}
+Nota: No mostrar el ultimo elemento del vector.
+
+*/
+
+#include <iostream>
+#include <clocale>
+using namespace std;
+int main() {
+    setlocale (LC_ALL,"Spanish");
+    int vec_numeros[10]={0},x,num,aux,pos;
+    bool maximo=false;
+
+    for(x=0;x<10;x++){
+        cout<<"Ingrese un numero: ";
+        cin>>num;
+        vec_numeros[x]=num;
+        if(maximo==false){
+            aux=num;
+            pos=x;
+            maximo=true;
+        }
+        else if(maximo==true&&num>aux){
+            aux=num;
+            pos=x;
+        }
+    }
+
+    for(x=0;x<10;x++){
+            if(vec_numeros[x]!=vec_numeros[pos]){
+                    cout<<endl<<vec_numeros[x]<<"  ";
+
+            }
+
+    }
+
+
+
+    return 0;
+}
