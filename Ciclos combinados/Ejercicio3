@@ -1,0 +1,169 @@
+/*Una empresa transporta encomiendas entre Buenos Aires y Mendoza. Por cada encomienda se cobra un importe de acuerdo al peso de
+la misma, con la siguiente escala:
+Kilos		Importe
+<= 10		     A
+>10 y <=40	     B
+>40		     C
+Los camiones utilizados transportan un máximo de 200 kilos y son cargados a medida que llegan las encomiendas, partiendo en el momento
+en que una encomienda no puede ser cargada en el camión por exceder los 200 kilos y se procede a colocar en otro camión que así
+comienza a ser cargado. Los camiones a medida que se cargan se identifican con un número, partiendo del número uno (1).
+Confeccionar un programa para que:
+a) Ingrese los valores de los tres importes A, B y C.
+b) Ingrese el peso de cada encomienda. Para finalizar la carga de datos se ingresa una encomienda "ficticia", con peso negativo.
+c) Por cada encomienda despachada se informe la siguiente información:
+Nro. de Camión, Kg. Transportados e  Importe Cobrado
+d) Informar la cantidad total de camiones y el total facturado. */
+
+#include <iostream>
+using namespace std;
+int main(){
+    int num,suc;
+    float monto;
+    char cod;
+    //punto a)
+    int cont=0;
+    //punto b)
+    bool montoMaximo=false;
+    float max;
+    int sucursalMax,numCliente;
+    //punto c)
+    int conTotalTransaccion=0,con1=0,con2=0,con3=0;
+    float porcsucA,porcsucB,porcsucC;
+    //punto d)
+    float acuPesos1=0,acuPesos2=0,acuPesos3=0;
+    //punto e)
+    int contTigre=0;
+    //punto f)
+    int cantSan=0,cantVirreyes=0,cantTigre=0;
+
+    cout<<"ingrese el numero de cliente:";
+    cin>> num;
+
+
+
+    while(num!=0)
+    {
+        cout<<"ingrese el numero de sucursal:";
+        cin>> suc;
+        cout<<"ingrese el codigo de transaccion ('D' para depositos, 'E' para extracciones)";
+        cin>> cod;
+        cout<<"ingrese el monto en pesos de la transaccion:";
+        cin>>monto;
+
+        conTotalTransaccion=conTotalTransaccion+1;
+
+
+        //punto c)
+        switch(suc)
+        {
+        case 1:
+            con1++;
+
+            if(cod=='D')
+            {
+                acuPesos1+=monto;
+                cantVirreyes+=cod;
+
+            }
+
+            break;
+        case 2:
+            con2++;
+            if(cod=='D')
+            {
+                acuPesos2+=monto;
+                cantSan+=cod;
+
+            }
+            break;
+        case 3:
+            con3++;
+            if(cod=='D')
+            {
+                acuPesos3+=monto;
+                cantTigre+=cod;
+                contTigre++;
+
+            }
+            break;
+        }
+
+        //punto A
+        if(monto > 1000 && cod =='D')
+        {
+            cont++;
+        }
+
+        //punto b)
+        if(cod=='E')
+        {
+            if(montoMaximo)
+            {
+                max=monto;
+                sucursalMax=suc;
+                numCliente=num;
+                montoMaximo=true;
+            }
+            else
+            {
+                if(monto>max)
+                {
+                    max=monto;
+                    sucursalMax=suc;
+                    numCliente=num;
+                }
+            }
+        }
+
+        cout<<"*******************************"<<endl;
+        cout<<"ingrese el numero de cliente:";
+        cin>> num;
+    }
+
+
+
+
+//punto a)
+    cout<<"a)la cantidad de montos mayores a 1000 por la sucursal es:"<<cont<<endl;
+//punto b)
+    cout<<"b)El numero de cliente que hizo la mayor extraccion es: "<< numCliente <<" y pertenece a la sucursal :"<<sucursalMax<<endl;
+//punto c)
+    if(conTotalTransaccion!=0)
+    {
+        porcsucA=(float)con1*100/conTotalTransaccion;
+        porcsucB=(float)con2*100/conTotalTransaccion;
+        porcsucC=(float)con3*100/conTotalTransaccion;
+    }
+
+    cout<<"c)El porcentaje para la sucursal Virreyes es de:"<<porcsucA<<" % de San Fernando es de:"<<porcsucB<<" % y el de Tigre es de:"<<porcsucC<<" %"<<endl;
+
+//punto d)
+    cout<<"d)El total de pesos depositados en la sucursal Virreyes es de:"<<acuPesos1<<endl;
+    cout<<"d)El total de pesos depositados en la sucursal San Fernando es de:"<<acuPesos2<<endl;
+    cout<<"d)El total de pesos depositados en la sucursal Tigre es de:"<<acuPesos3<<endl;
+
+
+//punto e)
+    cout<<"e)La cantidad de depositos en la sucursal de Tigre es de:"<<contTigre<<endl;
+
+//punto f)
+
+    if(cantSan>cantTigre && cantSan>cantVirreyes)
+    {
+        cout<<"f)la sucursal que mas depositos tuvo es San Fernando"<<endl;
+    }
+
+    if(cantVirreyes>cantTigre && cantVirreyes>cantSan)
+    {
+        cout<<"f)la sucursal que mas depositos tuvo es Virreyes"<<endl;
+    }
+
+    if(cantTigre>cantSan && cantTigre>cantVirreyes)
+    {
+        cout<<"f)la sucursal que mas depositos tuvo es Tigre"<<endl;
+    }
+
+
+
+    return 0;
+}
