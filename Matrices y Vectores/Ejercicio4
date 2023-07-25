@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+int main() {
+int dia[30],x,nro_dia;
+    int nroVenta,mayorDia;
+    float mayor_impo;
+      bool max_rec=false;
+    for (x=0;x<30;x++){
+        dia[x]=x+1;
+    }
+
+    //A- Por cada día, la recaudación total (sólo de aquellos días que tuvieron recaudación).
+    float vFacturacionDiaria[30]={},importe;
+    cout<<"Ingrese numero de venta: ";
+    cin>>nroVenta;
+    while(nroVenta!=0){
+        cout<<"Ingrese dia: ";
+        cin>>nro_dia;
+        cout<<"Ingrese importe de la venta: ";
+        cin>>importe;
+        vFacturacionDiaria[nro_dia-1]+=importe;
+    cout<<"Ingrese numero de venta: ";
+    cin>>nroVenta;
+    }
+    cout<<endl<<" ----- RESULTADOS PUNTO A ----- "<<endl;
+    cout<<endl;
+    for(x=0;x<30;x++){
+        if(vFacturacionDiaria[x]!=0){
+
+            cout<<"Dia "<<x+1<<": $ "<<vFacturacionDiaria[x]<<endl;
+        }
+    //B- El número de día que más se recaudó en total y cuál fue la recaudación máxima.
+
+
+    if(max_rec==false){
+        max_rec=true;
+        mayorDia=nro_dia;
+        mayor_impo=vFacturacionDiaria[x];
+
+    }
+    else{
+
+     if (vFacturacionDiaria[x]>mayor_impo){
+        mayor_impo=vFacturacionDiaria[x];
+        mayorDia=dia[x];
+    }
+
+    }
+    }
+    cout<<endl;
+    cout<<endl<<" ----- RESULTADOS PUNTO B ----- "<<endl;
+    cout<<endl;
+    cout<<"La recaudacion maxima es: $ "<< mayor_impo;
+    cout<<endl<<"En el dia:"<< mayorDia<<endl;
+    cout<<endl<<"---------------------------------------------------------"<<endl;
+
+
+    return 0;
+}
