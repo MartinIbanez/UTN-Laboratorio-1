@@ -1,0 +1,32 @@
+/*Hacer un programa para que un comercio ingrese por teclado la recaudación en pesos para cada una de las cuatro semanas del mes. El
+ programa debe listar la recaudación promedio por semana y el porcentaje de recaudación por semana.
+Ej. Si ingresa $ 1600, $ 1200, $ 4800 y $ 400 se listara como recaudación promedio $ 2000 y como porcentajes por semana: 20%, 15%, 60% y 5%* */
+
+
+#include<iostream>
+using namespace std;
+int main(void) {
+    float s1,s2,s3,s4,total,prom_semana,semana1,semana2,semana3,semana4;
+    cout<<"Recaudacion de ventas semana 1:  ";
+    cin>>s1;
+    cout<<"Recaudacion de ventas semana 2:  ";
+    cin>>s2;
+    cout<<"Recaudacion de ventas semana 3:  ";
+    cin>>s3;
+    cout<<"Recaudacion de ventas semana 4:  ";
+    cin>>s4;
+total=s1+s2+s3+s4;
+prom_semana= total/4;
+semana1= s1*100/total;
+semana2= s2*100/total;
+semana3= s3*100/total;
+semana4= s4*100/total;
+
+    cout<<endl<<endl<<"La recaudacion promedio es de $ "<<prom_semana<<endl;
+    cout<<endl<<"Porcentaje de recaudacion Semana 1:  "<<semana1<<" %"<<endl;
+    cout<<"Porcentaje de recaudacion Semana 2:  "<<semana2<<" %"<<endl;
+    cout<<"Porcentaje de recaudacion Semana 3:  "<<semana3<<" %"<<endl;
+     cout<<"Porcentaje de recaudacion Semana 4:  "<<semana4<<" %"<<endl;
+
+	return 0;
+}
