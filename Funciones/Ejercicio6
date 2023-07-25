@@ -1,0 +1,58 @@
+/*Hacer una función que reciba un número entero llamado valor_buscado, un vector de números enteros y su tamaño y devuelva
+ verdadero si el valor buscado se encuentra dentro del vector. Caso contrario debe devolver falso*/
+#include <iostream>
+#include<cstdlib> ///PARA LIMPIAR LA PANTALLA
+#include <stdlib.h> ///PARA LA PAUSA.
+#include <ctime>     ///LIBRERIA PARA NUMERO ALEATORIO.
+#include <string.h> ///LIBRERIA PARA CADENA DE CARACTERES.
+#include <cstring>  ///COPIA UNA PALABRA EN OTRA.
+#include <conio.h> ///PARA USAR GETCH.
+#include <string> ///ELEMENTOS TIPO CHAR
+#include<locale.h> ///PARA CARACTERES ESPECIALES.
+#include<windows.h> ///PARA EL LOGO DE CARD JITSU Y COLOR.
+#include <clocale> ///PARA CARACTERES ESPECIALES.
+
+using namespace std;
+void cargarVector(int vec[],int tam);
+bool valor_buscado(int numero,int vec[],int tam);
+
+int main() {
+    int numero;
+    int const tam=5;
+    int vectorEnteros[tam];
+    bool valor;
+
+    cargarVector(vectorEnteros,tam);
+
+    cout<<endl<<"Ingresar valor a buscar: "<<endl;
+    cin>>numero;
+    valor= valor_buscado(numero,vectorEnteros,tam);
+    if(valor==true){
+        cout<<"VERDADERO"<<endl;
+    }
+    else{
+        cout<<"FALSO"<<endl;
+    }
+
+    getch();
+
+    return 0;
+}
+void cargarVector(int vec[],int tam){
+    cout<<"Ingresar los elementos del Vector:"<<endl;
+
+    for(int x=0;x<tam;x++){
+            cout<<x+1<<". ";
+            cin>>vec[x];
+    }
+
+}
+bool valor_buscado(int numero,int vec[],int tam){
+    bool valor_buscado=false;
+    for(int x=0;x<tam;x++){
+        if(numero==vec[x]){
+            valor_buscado=true;
+        }
+    }
+return valor_buscado;
+}
