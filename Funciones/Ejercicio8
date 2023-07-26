@@ -1,0 +1,51 @@
+/* Hacer una función que reciba un un vector de carácteres y devuelva la cantidad de caracteres del mismo hasta el '\0'. Asumir que el vector dispone de un '\0'.
+NOTA: No confundir un string con un vector de cadenas de caracteres. Los mismos se declaran y se utilizan de maneras distintas:
+    char mi_vector_caracteres[100]; // Un vector de caracteres
+    string mi_cadena_caracteres; // Un string o cadena de caracteres*/
+
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+#include <string.h>
+using namespace std;
+void cargarVector(char vec[],int tam);
+int cantCaracter(char vec[], int tam);
+
+
+int main(){
+    int const tam =100;
+    int caracteres=0;
+    char vecCaracter[tam];
+
+    cargarVector(vecCaracter,tam);
+
+    caracteres= cantCaracter(vecCaracter,tam);
+
+    cout<<endl<<"Cantidad de caracteres: "<<caracteres<<endl;
+
+
+getch();
+  return 0;
+}
+
+int cantCaracter(char vec[], int tam){
+    int suma=0;
+
+    for(int x=0;x<tam;x++){
+
+        if(vec[x]!='\0'){
+            suma++;
+        }
+            else{
+                return suma;
+            }
+    }
+return suma;
+}
+
+void cargarVector(char vec[],int tam){
+
+    cout<<"Ingresar elementos del vector de caracteres"<<endl;
+        cin.getline(vec,tam,'\n');
+        }
+
