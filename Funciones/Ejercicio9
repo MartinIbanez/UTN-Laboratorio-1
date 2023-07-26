@@ -1,0 +1,44 @@
+/*Hacer una función que reciba un carácter llamado valor_buscado y un vector de cadenas de caracteres y devuelva la cantidad de veces que el carácter buscado
+se encuentra en el vector*/
+
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+#include <string.h>
+using namespace std;
+
+void cargarVector(char vec[],int tam);
+int valorBuscado(char valor_buscado,char vec[],int tam);
+
+int main(){
+    int const tam=100;
+    char vecCaracter[tam],valor_buscado;
+    cargarVector(vecCaracter,tam);
+    int cantidad;
+
+    cout<<"Ingresar valor a buscar: ";
+    cin>>valor_buscado;
+
+    cantidad=valorBuscado(valor_buscado,vecCaracter,tam);
+
+    cout<<"El caracter "<<valor_buscado<<" aparece "<<cantidad<<" veces"<<endl;
+
+    getch();
+
+  return 0;
+}
+
+void cargarVector(char vec[],int tam){
+
+    cout<<"Ingresar elementos del vector de caracteres"<<endl;
+        cin.getline(vec,tam,'\n');
+        }
+int valorBuscado(char valor_buscado,char vec[],int tam){
+    int suma=0;
+    for(int x=0;x<tam;x++){
+        if(vec[x]==valor_buscado){
+            suma++;
+        }
+    }
+return suma;
+}
