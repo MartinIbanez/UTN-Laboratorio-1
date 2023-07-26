@@ -1,0 +1,62 @@
+/*Hacer una función que reciba un número entero llamado dia y una cadena de caracteres llamada nombre y le asigne el nombre correspondiente según el
+número de día. Siendo 0 → Domingo y 6 → Sábado*/
+
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+#include <string.h>
+#include <locale.h>
+
+using namespace std;
+void asignarDia(char nombre[],int ,int dia);
+int main(){
+   int dia;
+   char nombre[10];
+   cout<<"Ingresar Nro de dia: ";
+    cin>>dia;
+   asignarDia(nombre,10,dia);
+   if(dia<=6){
+    cout<<endl<<"Corresponde al dia: "<<nombre<<endl;
+   }
+  return 0;
+}
+
+void asignarDia(char nombre[],int ,int dia){
+    char domingo[]={"DOMINGO"};
+    char lunes[]={"LUNES"};
+    char martes[]={"MARTES"};
+    char miercoles[]={"MIERCOLES"};
+    char jueves[]={"JUEVES"};
+    char viernes[]={"VIERNES"};
+    char sabado[]={"SABADO"};
+
+    switch(dia){
+    case 0:
+        strcpy(nombre,domingo);
+    break;
+    case 1:
+        strcpy(nombre,lunes);
+    break;
+    case 2:
+        strcpy(nombre,martes);
+    break;
+    case 3:
+        strcpy(nombre,miercoles);
+    break;
+    case 4:
+        strcpy(nombre,jueves);
+    break;
+    case 5:
+        strcpy(nombre,viernes);
+    break;
+    case 6:
+        strcpy(nombre,sabado);
+    break;
+    default:
+    cout<<endl<<"NO CORRESPONDE A UN DIA DE SEMANA "<<endl;
+
+    }
+
+}
+
+
